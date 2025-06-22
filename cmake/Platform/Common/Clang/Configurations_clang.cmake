@@ -50,6 +50,9 @@ ly_append_configurations_options(
         -Wno-undefined-var-template
         -fno-relaxed-template-template-args
         -Wno-deprecated-no-relaxed-template-template-args
+        -Wno-unused-result
+        -Wno-unused-but-set-variable
+        -Wno-nontrivial-memcall
 
         ###################
         # Enabled warnings (that are disabled by default)
