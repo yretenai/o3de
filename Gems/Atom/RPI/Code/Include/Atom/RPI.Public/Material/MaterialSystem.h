@@ -26,12 +26,10 @@ namespace AZ::RPI
     class Material;
 
     //! Manages system-wide initialization and support for material classes
-    AZ_PUSH_DISABLE_DLL_EXPORT_BASECLASS_WARNING
     class ATOM_RPI_PUBLIC_API MaterialSystem
         : public MaterialInstanceHandlerInterface::Registrar
         , public Data::AssetBus::Handler
     {
-        AZ_POP_DISABLE_DLL_EXPORT_BASECLASS_WARNING
     public:
         static void Reflect(AZ::ReflectContext* context);
         static void GetAssetHandlers(AssetHandlerPtrList& assetHandlers);
@@ -60,7 +58,8 @@ namespace AZ::RPI
     private:
         bool LoadMaterialSrgShaderAsset();
         void CreateSceneMaterialSrg();
-        void UpdateSceneMaterialSrg();
+        bool UpdateSceneMaterialSrg();
+        bool UpdateSharedSamplerStates();
         void PrepareMaterialParameterBuffers();
         void UpdateChangedMaterialParameters();
         void CreateTextureSamplers(const AZStd::vector<RHI::SamplerState>& samplers, Data::Instance<ShaderResourceGroup> srg);
@@ -125,6 +124,7 @@ namespace AZ::RPI
 
         Data::Instance<Buffer> m_materialTypeBufferIndicesBuffer;
         bool m_bufferReadIndicesDirty = false;
+        bool m_sharedSamplerStatesDirty = false;
     };
 
 } // namespace AZ::RPI

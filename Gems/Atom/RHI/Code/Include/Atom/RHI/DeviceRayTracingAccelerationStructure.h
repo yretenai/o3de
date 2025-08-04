@@ -12,7 +12,7 @@
 #include <AzCore/Math/Transform.h>
 #include <Atom/RHI/DeviceIndexBufferView.h>
 #include <Atom/RHI/DeviceStreamBufferView.h>
-#include <Atom/RHI.Reflect/Format.h>
+#include <Atom/RHI.Reflect/VertexFormat.h>
 #include <Atom/RHI/DeviceObject.h>
 
 namespace AZ::RHI
@@ -62,7 +62,7 @@ namespace AZ::RHI
     //! scene.  Each DeviceRayTracingBlas contains a list of these entries.
     struct DeviceRayTracingGeometry
     {
-        RHI::Format m_vertexFormat = RHI::Format::Unknown;
+        RHI::VertexFormat m_vertexFormat = RHI::VertexFormat::Unknown;
         RHI::DeviceStreamBufferView m_vertexBuffer;
         RHI::DeviceIndexBufferView m_indexBuffer;
         // [GFX TODO][ATOM-4989] Add DXR BLAS Transform Buffer
@@ -83,7 +83,7 @@ namespace AZ::RHI
     //! DeviceRayTracingBlas
     //!
     //! A DeviceRayTracingBlas is created from the information in the DeviceRayTracingBlasDescriptor.
-    class DeviceRayTracingBlas
+    class ATOM_RHI_PUBLIC_API DeviceRayTracingBlas
         : public DeviceObject
     {
     public:
@@ -161,7 +161,7 @@ namespace AZ::RHI
     //! DeviceRayTracingTlas
     //!
     //! A DeviceRayTracingTlas is created from the information in the DeviceRayTracingTlasDescriptor.
-    class DeviceRayTracingTlas
+    class ATOM_RHI_PUBLIC_API DeviceRayTracingTlas
         : public DeviceObject
     {
     public:
