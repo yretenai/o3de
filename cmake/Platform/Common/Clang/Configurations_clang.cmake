@@ -57,6 +57,7 @@ ly_append_configurations_options(
         -Wno-unused-result
         -Wno-unused-but-set-variable
         -Wno-nontrivial-memcall
+        -Wno-unused-variable
         -Wno-dllexport-explicit-instantiation-decl  # explicit instantiation declaration should not be 'dllexport'
 
         ###################

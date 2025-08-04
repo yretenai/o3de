@@ -33,6 +33,8 @@ git clone https://github.com/o3de/o3de.git
 
 ## Building the Engine
 
+`cmake -B build/linux -S . -G "Ninja Multi-Config" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLY_UNITY_BUILD=NO`
+
 ### Build requirements and redistributables
 
 For the latest details and system requirements, refer to [System Requirements](https://o3de.org/docs/welcome-guide/requirements/) in the documentation.
