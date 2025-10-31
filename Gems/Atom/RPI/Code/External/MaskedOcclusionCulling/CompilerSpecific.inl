@@ -76,7 +76,7 @@
 		free(ptr);
 	}
 
-#if !defined(__clang__)
+#if !defined(__clang__) || (__clang_major__ < 19)
 	FORCE_INLINE void __cpuidex(int* cpuinfo, int function, int subfunction)
 	{
 		__cpuid_count(function, subfunction, cpuinfo[0], cpuinfo[1], cpuinfo[2], cpuinfo[3]);
